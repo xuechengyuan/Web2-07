@@ -1,0 +1,123 @@
+/*
+* @Author: asus1
+* @Date:   2019-12-15 11:30:55
+* @Last Modified by:   asus1
+* @Last Modified time: 2019-12-15 14:35:26
+*/
+*{
+	padding: 0;
+	margin: 0;
+}
+#tip{
+	height: 24px;
+	background-color: #cccccc;
+}
+#vip{
+	width: 1200px;
+	height: 24px;
+	background-color: #cccccc;
+	margin: 0 auto;
+	position: relative;
+}
+.image{
+	height: 24px;
+	position: absolute;
+	top: 0px;
+	left: 100px;
+	line-height: 24px;
+}
+#img{
+	display: block;
+	margin: 4px 0;
+}
+#kk{
+	width: 920px;
+	height: 24px;
+	position: absolute;
+	right: 150px;
+	top: 0;
+	overflow: hidden;
+}
+#kks{
+	color: red;
+	width: 350px;
+	height: 24px;
+	line-height: 24px;
+	font-size: 12px;
+	position: absolute;
+	right: -150px;
+}
+#box{
+	width: 1200px;
+	height: 382px;
+	margin: 0 auto;
+	border: 1px;
+	margin: 100px auto;
+	position: relative;
+	overflow: hidden;
+}
+#silder{
+	width: 8400px;
+	position: absolute;
+	left: -1200px;
+}
+.slide{
+	width: 1200px;
+	float: left;
+	overflow: hidden;
+}
+#box>span{
+	opacity: 0;
+}	
+#left{
+	display: block;
+	color: white;
+	width: 30px;
+	height: 50px;
+	line-height: 50px;
+	text-align: center;
+	font-size: 30px;
+	background-color: red;
+	position: absolute;
+	top: 175px;
+	left: 30px;
+}
+#right{
+	display: block;
+	color: white;
+	width: 30px;
+	height: 50px;
+	line-height: 50px;
+	text-align: center;
+	font-size: 30px;
+	background-color: red;
+	position: absolute;
+	top: 175px;
+	right: 30px;
+}
+#nav{
+	width: 250px;
+	height: 20px;
+	position: absolute;
+	top: 356px;
+	left: 475px;
+	}
+#nav>li{
+	float: left;
+	width: 20px;
+	height: 20px;
+	text-align: center;
+	line-height: 20px;
+	font-size: 10px;
+	background-color: #ccc;
+	margin: 0 15px;
+	border-radius: 50%;
+	list-style-type: none;
+}
+#no1{
+	color: red;
+}
+#nav .active{
+	color: white;
+	background: red;
+}

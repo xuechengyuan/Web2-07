@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+	<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>轮播图</title>
+		<link rel="stylesheet" href="hh.css">
+		<script src="animate.js"></script>
+	</head>
+	<body>
+		<div id="tip">
+			<div id = "vip">
+				<div class="image">
+					<img id="img" src="images/a15.png">
+				</div>
+				<div id = "kk">
+					<div id="kks">[温馨提示]最近有不少不法分子在网上骗人，请大家注意!!!</div>
+				</div>
+			</div>
+		</div>
+		<div id="box">
+			<div id="silder">
+				<div class="slide"><img id="img" src="images/b5.png" alt=""></div>
+				<div class="slide"><img src="images/b1.png" alt=""></div>
+				<div class="slide"><img src="images/b2.png" alt=""></div>
+				<div class="slide"><img src="images/b3.png" alt=""></div>
+				<div class="slide"><img src="images/b4.png" alt=""></div>
+				<div class="slide"><img src="images/b5.png" alt=""></div>
+				<div class="slide"><img src="images/b1.png" alt=""></div>
+			</div>
+			<span id="left"><</span>
+			<span id="right">></span>
+			<ul id="nav">
+				<li class="active" id="no1">1</li>
+				<li>2</li>
+				<li>3</li>
+				<li>4</li>
+				<li>5</li>
+			</ul>
+		</div>
+	</body>
+	<script type="text/javascript">
+		var box=document.getElementById("box");
+		var silder=document.getElementById("silder");
+		var list = document.getElementById("nav").children;
+		var left =document.getElementById("left");
+		var right = document.getElementById("right");
+		var index = 1;
+		var value = false;
+		var tip = document.getElementById("tip");
+		var moveP = document.getElementById("kks");
+	
+		window.onload = function(){
+			var a = setInterval(function(){
+				var now = parseInt(getStyle(moveP,"right"));
+				if(now === 900){
+					moveP.style.right = -300+"px";
+				}
+				else{
+					moveP.style.right = now + 1 + "px";
+				}
+			},20)
+		};
+		function next(){
+			if(value){
+				return;
+			}
+			value = true;
+			index++;
+			change();
+			animate(silder,{left:-1200*index},function(){
+				if(index===6){
+					silder.style.left="-1200px";
+					index=1;
+				}
+				value=false;
+			});
+		}
+		function former(){
+			if(value){
+				return;
+			}
+			value = true;
+			index--;
+			change();
+			animate(silder,{left:-1200*index},function(){
+				if(index===0){
+					silder.style.left="-6000px";
+					index=5;
+				}
+				value = false;
+			});
+		}
+		var timer = setInterval(next,3000);
+		box.onmouseover = function(){
+			animate(left,{opacity:50});
+			animate(right,{opacity:50});
+			clearInterval(timer);
+		};
+		box.onmouseout = function(){
+			animate(left,{opacity:0});
+			animate(right,{opacity:0});
+			timer = setInterval(next,2000);
+		};
+		right.onclick=next;
+		left.onclick=former;
+		for(var i=0;i<list.length;i++){
+			list[i].idx = i;
+			list[i].onclick = function(){
+				index = this.idx+1;
+				change();
+				animate(silder,{left:-1200*index});
+			};
+		}
+		function change(){
+			for(var i=0;i<list.length;i++){
+				list[i].className="";
+			}
+			if(index===6){
+				list[0].className="active";
+			}else if(index===0){
+				list[4].className = "active";
+			}else{
+				list[index-1].className="active";
+			}
+		}
+	</script>
+	</html>
